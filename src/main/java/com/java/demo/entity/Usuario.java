@@ -1,7 +1,6 @@
 package com.java.demo.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,7 +9,9 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@Getter @Setter @NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "usuarios")
 public class Usuario implements Serializable {
@@ -27,7 +28,7 @@ public class Usuario implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false, length = 25)
-    private Role role;
+    private Role role = Role.ROLE_CLIENTE;
 
     @Column(name = "data_criacao")
     private LocalDate dataCriacao;
@@ -42,7 +43,7 @@ public class Usuario implements Serializable {
     private String modificadoPor;
 
 
-    private enum Role {
+    public enum Role {
         ROLE_ADMIN, ROLE_CLIENTE
     }
 
