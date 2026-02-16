@@ -42,7 +42,6 @@ public class Usuario implements Serializable {
     @Column(name = "modificado_por", length = 100)
     private String modificadoPor;
 
-
     public enum Role {
         ROLE_ADMIN, ROLE_CLIENTE
     }
